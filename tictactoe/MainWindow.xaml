@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:tictactoe"
         mc:Ignorable="d"
-        Title="TicTacToe" Height="600" Width="600" ResizeMode="NoResize">
-    <Grid Background="Ivory">
+        Title="TicTacToe" Height="800" Width="600" ResizeMode="NoResize">
+    <Grid Background="Beige">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -16,15 +16,19 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Content="" Name="btn0" Grid.Column="0" Grid.Row="0" FontSize="80px" Margin="5px" BorderBrush="Black" BorderThickness="2" Click="btn_Click"/>
-        <Button Content="" Name="btn1" Grid.Column="1" Grid.Row="0" FontSize="80px" Margin="5px" BorderBrush="Black" BorderThickness="2" Click="btn_Click"/>
-        <Button Content="" Name="btn2" Grid.Column="2" Grid.Row="0" FontSize="80px" Margin="5px" BorderBrush="Black" BorderThickness="2" Click="btn_Click"/>
-        <Button Content="" Name="btn3" Grid.Column="0" Grid.Row="1" FontSize="80px" Margin="5px" BorderBrush="Black" BorderThickness="2" Click="btn_Click"/>
-        <Button Content="" Name="btn4" Grid.Column="1" Grid.Row="1" FontSize="80px" Margin="5px" BorderBrush="Black" BorderThickness="2" Click="btn_Click"/>
-        <Button Content="" Name="btn5" Grid.Column="2" Grid.Row="1" FontSize="80px" Margin="5px" BorderBrush="Black" BorderThickness="2" Click="btn_Click"/>
-        <Button Content="" Name="btn6" Grid.Column="0" Grid.Row="2" FontSize="80px" Margin="5px" BorderBrush="Black" BorderThickness="2" Click="btn_Click"/>
-        <Button Content="" Name="btn7" Grid.Column="1" Grid.Row="2" FontSize="80px" Margin="5px" BorderBrush="Black" BorderThickness="2" Click="btn_Click"/>
-        <Button Content="" Name="btn8" Grid.Column="2" Grid.Row="2" FontSize="80px" Margin="5px" BorderBrush="Black" BorderThickness="2" Click="btn_Click"/>
+        <Button Content="" x:Name="btn0" Grid.Column="0" Grid.Row="0" FontSize="80px" Margin="5px" BorderBrush="Black" BorderThickness="2" Click="btn_Click" Background="LightSlateGray"/>
+        <Button Content="" x:Name="btn1" Grid.Column="1" Grid.Row="0" FontSize="80px" Margin="5px" BorderBrush="Black" BorderThickness="2" Click="btn_Click" Background="LightSlateGray"/>
+        <Button Content="" x:Name="btn2" Grid.Column="2" Grid.Row="0" FontSize="80px" Margin="5px" BorderBrush="Black" BorderThickness="2" Click="btn_Click" Background="LightSlateGray"/>
+        <Button Content="" x:Name="btn3" Grid.Column="0" Grid.Row="1" FontSize="80px" Margin="5px" BorderBrush="Black" BorderThickness="2" Click="btn_Click" Background="LightSlateGray"/>
+        <Button Content="" x:Name="btn4" Grid.Column="1" Grid.Row="1" FontSize="80px" Margin="5px" BorderBrush="Black" BorderThickness="2" Click="btn_Click" Background="LightSlateGray"/>
+        <Button Content="" x:Name="btn5" Grid.Column="2" Grid.Row="1" FontSize="80px" Margin="5px" BorderBrush="Black" BorderThickness="2" Click="btn_Click" Background="LightSlateGray"/>
+        <Button Content="" x:Name="btn6" Grid.Column="0" Grid.Row="2" FontSize="80px" Margin="5px" BorderBrush="Black" BorderThickness="2" Click="btn_Click" Background="LightSlateGray"/>
+        <Button Content="" x:Name="btn7" Grid.Column="1" Grid.Row="2" FontSize="80px" Margin="5px" BorderBrush="Black" BorderThickness="2" Click="btn_Click" Background="LightSlateGray"/>
+        <Button Content="" x:Name="btn8" Grid.Column="2" Grid.Row="2" FontSize="80px" Margin="5px" BorderBrush="Black" BorderThickness="2" Click="btn_Click" Background="LightSlateGray"/>
+
+        <Label Name="Panel" Content="Gracz 1" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+        <Button Content="Restart" Name="btn" Grid.Column="2" Grid.Row="3" FontSize="30" Height="75" Background="LightSlateGray" Foreground="White" Margin="5px" BorderBrush="Black" BorderThickness="2" Click="btn_Restart"/>
     </Grid>
 </Window>
