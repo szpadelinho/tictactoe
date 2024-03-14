@@ -8,7 +8,7 @@
         Title="TicTacToe" Height="800" Width="600" ResizeMode="NoResize">
     <Grid Background="Beige">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="200"/>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
@@ -28,7 +28,8 @@
         <Button Content="" x:Name="btn7" Grid.Column="1" Grid.Row="2" FontSize="80px" Margin="5px" BorderBrush="Black" BorderThickness="2" Click="btn_Click" Background="LightSlateGray"/>
         <Button Content="" x:Name="btn8" Grid.Column="2" Grid.Row="2" FontSize="80px" Margin="5px" BorderBrush="Black" BorderThickness="2" Click="btn_Click" Background="LightSlateGray"/>
 
-        <Label Name="Panel" Content="Gracz 1" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
-        <Button Content="Restart" Name="btn" Grid.Column="2" Grid.Row="3" FontSize="30" Height="75" Background="LightSlateGray" Foreground="White" Margin="5px" BorderBrush="Black" BorderThickness="2" Click="btn_Restart"/>
+        <Label Name="Panel" Content="Gracz 1" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" MaxWidth="150px"/>
+        <Button Content="Restart" Name="btn" Grid.Column="1" Grid.Row="3" FontSize="30" Height="50" Background="LightSlateGray" Foreground="White" Margin="5px" BorderBrush="Black" BorderThickness="2" Click="btn_Restart"/>
+		<Button Content="Blokuj" Name="button" Grid.Column="2" Grid.Row="3" FontSize="30" Height="50" Background="LightSlateGray" Foreground="White" Margin="5px" BorderBrush="Black" BorderThickness="2" Click="btn_Block"/>
     </Grid>
 </Window>

@@ -17,6 +17,7 @@ namespace tictactoe
         private bool isPlayerTurn { get; set; }
         private int Counter { get; set; }
         public bool isWinner = false;
+        private Random random = new Random();
         public MainWindow()
         {
             InitializeComponent();
@@ -36,7 +37,7 @@ namespace tictactoe
         {
             var button = sender as Button;
 
-            if (isWinner)
+            if (isWinner || !string.IsNullOrEmpty(button.Content as string))
             {
                 return;
             }
@@ -54,8 +55,8 @@ namespace tictactoe
                 button.Background = isPlayerTurn ? Brushes.Blue : Brushes.Red;
                 button.Content = isPlayerTurn ? "O" : "X";
             }
-            getWinner();
             isPlayerTurn = !isPlayerTurn;
+            getWinner();
         }
 
         private void getWinner()
@@ -159,6 +160,20 @@ namespace tictactoe
                 btn.Content = "";
                 btn.BorderBrush = Brushes.Black;
                 btn.Foreground = Brushes.Black;
+                btn.IsEnabled = true;
+            }
+        }
+
+        private void btn_Block(object sender, RoutedEventArgs e)
+        {
+            var btnsList = btns.Where(btn => btn.Content.Equals("")).ToList();
+            if (btnsList.Any())
+            {
+                var blockedButton = random.Next(0, btnsList.Count);
+
+                btnsList[blockedButton].Background = Brushes.Khaki;
+                btnsList[blockedButton].Content = "🗿";
+                Counter++;
             }
         }
     }
