@@ -44,11 +44,11 @@ namespace tictactoe
 
             if (isPlayerTurn)
             {
-                Panel.Content = "Gracz 1";
+                PanelText.Text = "Gracz X";
             }
             else
             {
-                Panel.Content = "Gracz 2";
+                PanelText.Text = "Gracz O";
             }
             if (button.Content.Equals(""))
             {
@@ -61,6 +61,8 @@ namespace tictactoe
 
         private void getWinner()
         {
+            Counter = 0;
+            
             foreach (var btn in btns)
             {
                 if(btn != null && !btn.Content.Equals(""))
@@ -69,58 +71,70 @@ namespace tictactoe
                 }
             }
 
-            if(!btn0.Content.Equals("") && btn0.Content.Equals(btn1.Content) && btn0.Content.Equals(btn2.Content))
+            if(!btn0.Content.Equals("") && !btn0.Content.Equals("🗿") && btn0.Content.Equals(btn1.Content) && btn0.Content.Equals(btn2.Content))
             {
                 WonGame(btn0, btn1, btn2);
                 isWinner = true;
                 Counter = 0;
+                return;
             }
-            if (!btn3.Content.Equals("") && btn3.Content.Equals(btn4.Content) && btn3.Content.Equals(btn5.Content))
+            if (!btn3.Content.Equals("") && !btn3.Content.Equals("🗿") && btn3.Content.Equals(btn4.Content) && btn3.Content.Equals(btn5.Content))
             {
                 WonGame(btn3, btn4, btn5);
                 isWinner = true;
                 Counter = 0;
+                return;
             }
-            if (!btn6.Content.Equals("") && btn6.Content.Equals(btn7.Content) && btn6.Content.Equals(btn8.Content))
+            if (!btn6.Content.Equals("") && !btn6.Content.Equals("🗿") && btn6.Content.Equals(btn7.Content) && btn6.Content.Equals(btn8.Content))
             {
                 WonGame(btn6, btn7, btn8);
                 isWinner = true;
                 Counter = 0;
+                return;
             }
-            if (!btn0.Content.Equals("") && btn0.Content.Equals(btn3.Content) && btn0.Content.Equals(btn6.Content))
+            if (!btn0.Content.Equals("") && !btn0.Content.Equals("🗿") && btn0.Content.Equals(btn3.Content) && btn0.Content.Equals(btn6.Content))
             {
                 WonGame(btn0, btn3, btn6);
                 isWinner = true;
                 Counter = 0;
+                return;
             }
-            if (!btn1.Content.Equals("") && btn1.Content.Equals(btn4.Content) && btn1.Content.Equals(btn7.Content))
+            if (!btn1.Content.Equals("") && !btn1.Content.Equals("🗿") && btn1.Content.Equals(btn4.Content) && btn1.Content.Equals(btn7.Content))
             {
                 WonGame(btn1, btn4, btn7);
                 isWinner = true;
                 Counter = 0;
+                return;
             }
-            if (!btn2.Content.Equals("") && btn2.Content.Equals(btn5.Content) && btn2.Content.Equals(btn8.Content))
+            if (!btn2.Content.Equals("") && !btn2.Content.Equals("🗿") && btn2.Content.Equals(btn5.Content) && btn2.Content.Equals(btn8.Content))
             {
                 WonGame(btn2, btn5, btn8);
                 isWinner = true;
                 Counter = 0;
+                return;
             }
-            if (!btn0.Content.Equals("") && btn0.Content.Equals(btn4.Content) && btn0.Content.Equals(btn8.Content))
+            if (!btn0.Content.Equals("") && !btn0.Content.Equals("🗿") && btn0.Content.Equals(btn4.Content) && btn0.Content.Equals(btn8.Content))
             {
                 WonGame(btn0, btn4, btn8);
                 isWinner = true;
                 Counter = 0;
+                return;
             }
-            if (!btn2.Content.Equals("") && btn2.Content.Equals(btn4.Content) && btn2.Content.Equals(btn6.Content))
+            if (!btn2.Content.Equals("") && !btn2.Content.Equals("🗿") && btn2.Content.Equals(btn4.Content) && btn2.Content.Equals(btn6.Content))
             {
                 WonGame(btn2, btn4, btn6);
                 isWinner = true;
                 Counter = 0;
+                return;
             }
             if(Counter == btns.Length && !isWinner)
             {
-                Panel.Content = "Remis";
+                PanelText.Text = "Remis";
                 Counter = 0;
+                foreach(var btn in btns)
+                {
+                    btn.Background = Brushes.OrangeRed;
+                }
             }
         }
 
@@ -140,17 +154,17 @@ namespace tictactoe
 
             if (isPlayerTurn)
             {
-                Panel.Content = "Zwyciężył gracz 1";
+                PanelText.Text = "Zwyciężył gracz X";
             }
             else
             {
-                Panel.Content = "Zwyciężył gracz 2";
+                PanelText.Text = "Zwyciężył gracz O";
             }
         }
 
         private void btn_Restart(object sender, RoutedEventArgs e)
         {
-            Panel.Content = "Gracz 1";
+            PanelText.Text = "Gracz X";
             Counter = 0;
             isWinner = false;
 
@@ -167,6 +181,7 @@ namespace tictactoe
         private void btn_Block(object sender, RoutedEventArgs e)
         {
             var btnsList = btns.Where(btn => btn.Content.Equals("")).ToList();
+            
             if (btnsList.Any())
             {
                 var blockedButton = random.Next(0, btnsList.Count);
@@ -174,6 +189,16 @@ namespace tictactoe
                 btnsList[blockedButton].Background = Brushes.Khaki;
                 btnsList[blockedButton].Content = "🗿";
                 Counter++;
+            }
+            
+            if(Counter == btns.Length && !isWinner)
+            {
+                PanelText.Text = "Remis";
+                Counter = 0;
+                foreach(var btn in btns)
+                {
+                    btn.Background = Brushes.OrangeRed;
+                }
             }
         }
     }
